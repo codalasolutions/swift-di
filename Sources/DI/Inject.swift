@@ -21,7 +21,7 @@ public class Inject<T> {
         storageValue = nil
         return container.resolve(id: id)
     }
-    private var storageValue: T?
+    public var storageValue: T?
 
     public init(container: DependencyContainer = .shared, id: Dependency.ID? = nil, storage: Bool = true) {
         self.container = container
