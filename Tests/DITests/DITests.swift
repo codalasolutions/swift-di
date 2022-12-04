@@ -29,4 +29,16 @@ final class DITests: XCTestCase {
         let dep2: New = sut.resolve(id: "id")
         XCTAssertTrue(dep1 !== dep2)
     }
+
+    func testStorageTrue() {
+        @Inject(container: sut, id: "id") var dep1: New
+        let dep2 = dep1
+        XCTAssertTrue(dep1 === dep2)
+    }
+
+    func testStorageFalse() {
+        @Inject(container: sut, id: "id", storage: false) var dep1: New
+        let dep2 = dep1
+        XCTAssertTrue(dep1 !== dep2)
+    }
 }
