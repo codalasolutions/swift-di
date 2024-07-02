@@ -10,6 +10,10 @@ public class DependencyContainer {
     func register(dependecy: Dependency) {
         dependencies[dependecy.id] = dependecy
     }
+    
+    func remove(dependecy: Dependency) {
+        dependencies.removeValue(forKey: dependecy.id)
+    }
 
     func resolve<T>(id: Dependency.ID? = nil) -> T {
         let id = id ?? Dependency.id(for: T.self)
