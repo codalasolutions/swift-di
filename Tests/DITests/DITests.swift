@@ -41,4 +41,18 @@ final class DITests: XCTestCase {
         let dep2 = dep1
         XCTAssertTrue(dep1 !== dep2)
     }
+    
+    func testRegisterDependency() {
+        sut.register(dependecy: Dependency { UserDefaults.standard as UserDefaults })
+        
+        XCTAssertTrue(sut.contains(type: UserDefaults.self))
+    }
+    
+    func testRemoveDependency() {
+        sut.register(dependecy: Dependency { UserDefaults.standard as UserDefaults })
+        
+        sut.remove(type: UserDefaults.self)
+        
+        XCTAssertFalse(sut.contains(type: UserDefaults.self))
+    }
 }

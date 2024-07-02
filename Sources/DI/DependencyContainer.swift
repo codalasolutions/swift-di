@@ -11,8 +11,9 @@ public class DependencyContainer {
         dependencies[dependecy.id] = dependecy
     }
     
-    func remove(dependecy: Dependency) {
-        dependencies.removeValue(forKey: dependecy.id)
+    func remove<T>(type: T.Type) {
+        let id = Dependency.id(for: T.self)
+        dependencies.removeValue(forKey: id)
     }
 
     func resolve<T>(id: Dependency.ID? = nil) -> T {
@@ -21,5 +22,10 @@ public class DependencyContainer {
             fatalError("Dependency '\(id)' not resolved!")
         }
         return dependency
+    }
+    
+    func contains<T>(type: T.Type) -> Bool {
+        let id = Dependency.id(for: T.self)
+        return dependencies[id] != nil
     }
 }
