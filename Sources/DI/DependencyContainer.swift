@@ -4,8 +4,8 @@
 //  Created by Giorgi Kratsashvili on 11/22/22.
 //
 
-public class DependencyContainer {
-    nonisolated(unsafe) private var dependencies: [Dependency.ID: Dependency] = [:]
+public final class DependencyContainer {
+    private var dependencies: [Dependency.ID: Dependency] = [:]
 
     func register(dependecy: Dependency) {
         dependencies[dependecy.id] = dependecy

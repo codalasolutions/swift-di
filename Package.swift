@@ -17,6 +17,7 @@ let package = Package(
             swiftSettings: [.swiftLanguageMode(.v6)]),
         .testTarget(
             name: "DITests",
-            dependencies: ["DI"]),
+            dependencies: ["DI"],
+            swiftSettings: [.swiftLanguageMode(.v6)]),
     ]
 )

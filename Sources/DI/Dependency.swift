@@ -4,7 +4,7 @@
 //  Created by Giorgi Kratsashvili on 11/23/22.
 //
 
-public class Dependency {
+public final class Dependency {
     public typealias ID = String
     public typealias Initializer<T> = () -> T
     public enum InstanceType {
