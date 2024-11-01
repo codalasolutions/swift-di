@@ -15,7 +15,7 @@ public final class Dependency {
     let id: ID
     private let instanceType: InstanceType
     private let initializer: Initializer<Any>
-    private var sharedInstance: Any? = nil
+    private var sharedInstance: Any?
 
     public init<T>(id: ID? = nil, instanceType: InstanceType = .shared, initializer: @escaping Initializer<T>) {
         self.id = id ?? Self.id(for: T.self)
@@ -39,6 +39,6 @@ public final class Dependency {
     }
 
     static func id<T>(for type: T.Type) -> ID {
-        return String(describing: T.self)
+        .init(describing: T.self)
     }
 }
