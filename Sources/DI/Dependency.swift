@@ -4,8 +4,6 @@
 //  Created by Giorgi Kratsashvili on 11/23/22.
 //
 
-import Darwin
-
 public final class Dependency {
     public typealias ID = String
     public typealias Initializer<T> = () -> T
