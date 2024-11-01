@@ -5,7 +5,7 @@
 //
 
 public class DependencyContainer {
-    private var dependencies: [Dependency.ID: Dependency] = [:]
+    nonisolated(unsafe) private var dependencies: [Dependency.ID: Dependency] = [:]
 
     func register(dependecy: Dependency) {
         dependencies[dependecy.id] = dependecy

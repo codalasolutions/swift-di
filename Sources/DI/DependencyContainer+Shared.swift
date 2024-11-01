@@ -5,5 +5,5 @@
 //
 
 public extension DependencyContainer {
-    static var shared = DependencyContainer()
+    nonisolated(unsafe) static var shared = DependencyContainer()
 }
